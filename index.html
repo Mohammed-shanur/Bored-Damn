@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        width: 800px;
+        height: 500px;
+        background-color: rgb(163, 255, 127);
+        margin: auto;
+        font-family: 'Lobster', cursive;;
+    }
+    h1{
+        text-align: center;
+        font-family:  'Shizuru', cursive;
+    }
+    .so1{
+        background-color: white;
+        color: rgb(0, 0, 0);
+        text-align: center;
+      
+}
+</style>
+<body>
+      <audio src="mixkit-children-happy-countdown-923.wav" autoplay loop></audio>
+    <h1>Bored&bigodot;Damn</h1>
+      <div class="box"><br>
+       <pre><h2>                               Activity
+
+            <p class="so1" id="ok1"></p>      
+         
+                            Type Of Activity
+                           <p class="so1" id="ok2"></p>
+
+                                Price(In %)
+                           <p class="so1" id="ok3"></p>
+
+                               Participants
+                            <p class="so1" id="ok4"></p>
+    </h2></pre>
+      </div>
+</body>
+<script>
+    var a = document.getElementById("ok1");
+    var b = document.getElementById("ok2");
+    var c = document.getElementById("ok3");
+    var d = document.getElementById("ok4");
+    var e = new XMLHttpRequest();
+    e.open("GET","https://www.boredapi.com/api/activity");
+    e.send();
+    e.addEventListener("load",function(){
+        let f = JSON.parse(this.responseText);
+        //   console.log(f);
+        a.innerHTML =  `${f.activity}`;    
+        b.innerHTML =  `${f.type}`;    
+        c.innerHTML =  `${f.price}`;    
+        d.innerHTML =  `${f.participants}`;    
+    })
+</script>
+</html>
