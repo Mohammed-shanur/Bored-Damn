@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        background-image: url(OIP\ \(5\).jpg);
+        text-align: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #box1{
+        width: 1250px;
+        height: 500px;
+        background-color: yellowgreen;
+        margin: auto;
+        background-image: url(OIP.jpg);
+        background-size: cover;
+        
+    }
+    .box2{
+        width: 1250px;
+        height: 500px;
+        background-color: blueviolet;
+        color: white;
+        margin: auto;
+        display: flex;
+        border-radius: 300px;
+        
+    }
+    .box3{
+        width: 625px ;
+        height:500px ;
+        background-color: aqua;
+        text-align: center;
+   
+    }
+    
+    .box4{
+        width: 625px ;
+        height:500px ;
+        background-color: aqua;
+        text-align: center;
+    }
+    .one{
+        background-color: black;
+        color: white;
+        width: 200px;
+        border-radius: 100px;
+    }
+</style>
+<body>
+    <h1>Bit&ominus;Edge</h1>
+    <select id="sel" onchange="ok()">
+        <option value="">Select Bitcoin Type Here</option>
+        <option value="ETHBTC">ETHBTC</option>
+        <option value="LTCBTC">LTCBTC</option>
+        <option value="BNBBTC">BNBBTC</option>
+        <option value="NEOBTC">NEOBTC</option>
+        <option value="QTUMETH">QTUMETH</option>
+        <option value="EOSETH">EOSETH</option>
+        <option value="SNTETH">SNTETH</option>
+        <option value="BNTETH">BNTETH</option>
+    </select>
+    <div id="box1">
+       
+        
+
+        </div>
+    </div>
+</body>
+<script>
+    const ok = ()=>{
+        var a = document.getElementById("box1");
+        var b = document.getElementById("sel").value;
+        var c = new XMLHttpRequest();
+        c.open("GET","https://api2.binance.com/api/v3/ticker/24hr");
+        c.send();
+        c.addEventListener("load",function(){
+             let d = JSON.parse(this.responseText);
+             if(b =="ETHBTC"){
+                 let f = ` <div class="box2">
+                   
+               <div class="box3">
+                <pre>
+            <h2 class="one">Symbol             ${d[0].symbol}</h2><h2 class="one">Price Charge       ${d[0].priceChange}</h2><h2 class="one">Price charge Count ${d[0].priceChangePercent}</h2><h2 class="one">Last Price         ${d[0].lastPrice}</h2><h2 class="one">Last Quantity      ${d[0].lastQty}</h2><h2 class="one">Bid Price          ${d[0].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[0].bidQty}</h2><h2 class="one">Ask Price          ${d[0].askPrice}</h2><h2 class="one">Ask Quantity       ${d[0].askQty}</h2>
+            
+        </pre>
+               </div>
+            <div class="box4">
+                <pre>
+            <br>
+            <h2 class="one">Weighted Average    ${d[0].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[0].priceChange}</h2><h2 class="one">High Price          ${d[0].highPrice}</h2><h2 class="one">Low  Price          ${d[0].lowPrice}</h2><h2 class="one">Volume              ${d[0].volume}</h2><h2 class="one">Quote Volume        ${d[0].quoteVolume}</h2><h2 class="one">Open Time           ${d[0].openTime}</h2><h2 class="one">Close Time          ${d[0].closeTime}</h2><h2 class="one">Count               ${d[0].count}</h2>
+            
+        </pre>     
+            </div>
+    </div>
+    `;
+         a.insertAdjacentHTML("afterbegin",f); 
+
+               }else if(b =="LTCBTC"){
+                let g = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[1].symbol}</h2><h2 class="one">Price Charge       ${d[1].priceChange}</h2><h2 class="one">Price charge Count ${d[1].priceChangePercent}</h2><h2 class="one">Last Price         ${d[1].lastPrice}</h2><h2 class="one">Last Quantity      ${d[1].lastQty}</h2><h2 class="one">Bid Price          ${d[1].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[1].bidQty}</h2><h2 class="one">Ask Price          ${d[1].askPrice}</h2><h2 class="one">Ask Quantity       ${d[1].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[1].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[1].priceChange}</h2><h2 class="one">High Price          ${d[1].highPrice}</h2><h2 class="one">Low  Price          ${d[1].lowPrice}</h2><h2 class="one">Volume              ${d[1].volume}</h2><h2 class="one">Quote Volume        ${d[1].quoteVolume}</h2><h2 class="one">Open Time           ${d[1].openTime}</h2><h2 class="one">Close Time          ${d[1].closeTime}</h2><h2 class="one">Count               ${d[1].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",g);
+                
+              }else if(b =="BNBBTC"){
+                let h = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[2].symbol}</h2><h2 class="one">Price Charge       ${d[2].priceChange}</h2><h2 class="one">Price charge Count ${d[2].priceChangePercent}</h2><h2 class="one">Last Price         ${d[2].lastPrice}</h2><h2 class="one">Last Quantity      ${d[2].lastQty}</h2><h2 class="one">Bid Price          ${d[2].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[2].bidQty}</h2><h2 class="one">Ask Price          ${d[2].askPrice}</h2><h2 class="one">Ask Quantity       ${d[2].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[2].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[2].priceChange}</h2><h2 class="one">High Price          ${d[2].highPrice}</h2><h2 class="one">Low  Price          ${d[2].lowPrice}</h2><h2 class="one">Volume              ${d[2].volume}</h2><h2 class="one">Quote Volume        ${d[2].quoteVolume}</h2><h2 class="one">Open Time           ${d[2].openTime}</h2><h2 class="one">Close Time          ${d[2].closeTime}</h2><h2 class="one">Count               ${d[2].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",h);
+              }else if(b =="NEOBTC"){
+                let i = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[3].symbol}</h2><h2 class="one">Price Charge       ${d[3].priceChange}</h2><h2 class="one">Price charge Count ${d[3].priceChangePercent}</h2><h2 class="one">Last Price         ${d[3].lastPrice}</h2><h2 class="one">Last Quantity      ${d[3].lastQty}</h2><h2 class="one">Bid Price          ${d[3].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[3].bidQty}</h2><h2 class="one">Ask Price          ${d[3].askPrice}</h2><h2 class="one">Ask Quantity       ${d[3].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[3].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[3].priceChange}</h2><h2 class="one">High Price          ${d[3].highPrice}</h2><h2 class="one">Low  Price          ${d[3].lowPrice}</h2><h2 class="one">Volume              ${d[3].volume}</h2><h2 class="one">Quote Volume        ${d[3].quoteVolume}</h2><h2 class="one">Open Time           ${d[3].openTime}</h2><h2 class="one">Close Time          ${d[3].closeTime}</h2><h2 class="one">Count               ${d[3].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",i);
+              }else if(b =="QTUMETH"){
+                let j = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[4].symbol}</h2><h2 class="one">Price Charge       ${d[4].priceChange}</h2><h2 class="one">Price charge Count ${d[4].priceChangePercent}</h2><h2 class="one">Last Price         ${d[4].lastPrice}</h2><h2 class="one">Last Quantity      ${d[4].lastQty}</h2><h2 class="one">Bid Price          ${d[4].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[4].bidQty}</h2><h2 class="one">Ask Price          ${d[4].askPrice}</h2><h2 class="one">Ask Quantity       ${d[4].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[4].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[4].priceChange}</h2><h2 class="one">High Price          ${d[4].highPrice}</h2><h2 class="one">Low  Price          ${d[4].lowPrice}</h2><h2 class="one">Volume              ${d[4].volume}</h2><h2 class="one">Quote Volume        ${d[4].quoteVolume}</h2><h2 class="one">Open Time           ${d[4].openTime}</h2><h2 class="one">Close Time          ${d[4].closeTime}</h2><h2 class="one">Count               ${d[4].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",j);
+              }else if(b =="EOSETH"){
+                let s = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[5].symbol}</h2><h2 class="one">Price Charge       ${d[5].priceChange}</h2><h2 class="one">Price charge Count ${d[5].priceChangePercent}</h2><h2 class="one">Last Price         ${d[5].lastPrice}</h2><h2 class="one">Last Quantity      ${d[5].lastQty}</h2><h2 class="one">Bid Price          ${d[5].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[5].bidQty}</h2><h2 class="one">Ask Price          ${d[5].askPrice}</h2><h2 class="one">Ask Quantity       ${d[5].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[5].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[5].priceChange}</h2><h2 class="one">High Price          ${d[5].highPrice}</h2><h2 class="one">Low  Price          ${d[5].lowPrice}</h2><h2 class="one">Volume              ${d[5].volume}</h2><h2 class="one">Quote Volume        ${d[5].quoteVolume}</h2><h2 class="one">Open Time           ${d[5].openTime}</h2><h2 class="one">Close Time          ${d[5].closeTime}</h2><h2 class="one">Count               ${d[5].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",s);
+              }else if(b =="SNTETH"){
+                let k = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[6].symbol}</h2><h2 class="one">Price Charge       ${d[6].priceChange}</h2><h2 class="one">Price charge Count ${d[6].priceChangePercent}</h2><h2 class="one">Last Price         ${d[6].lastPrice}</h2><h2 class="one">Last Quantity      ${d[6].lastQty}</h2><h2 class="one">Bid Price          ${d[6].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[6].bidQty}</h2><h2 class="one">Ask Price          ${d[6].askPrice}</h2><h2 class="one">Ask Quantity       ${d[6].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[6].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[6].priceChange}</h2><h2 class="one">High Price          ${d[6].highPrice}</h2><h2 class="one">Low  Price          ${d[6].lowPrice}</h2><h2 class="one">Volume              ${d[6].volume}</h2><h2 class="one">Quote Volume        ${d[6].quoteVolume}</h2><h2 class="one">Open Time           ${d[6].openTime}</h2><h2 class="one">Close Time          ${d[6].closeTime}</h2><h2 class="one">Count               ${d[6].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",k);
+              }else if(b ==" BNTETH"){
+                let l = ` <div class="box2">
+                   
+                   <div class="box3">
+                    <pre>
+                <h2 class="one">Symbol             ${d[7].symbol}</h2><h2 class="one">Price Charge       ${d[7].priceChange}</h2><h2 class="one">Price charge Count ${d[7].priceChangePercent}</h2><h2 class="one">Last Price         ${d[7].lastPrice}</h2><h2 class="one">Last Quantity      ${d[7].lastQty}</h2><h2 class="one">Bid Price          ${d[7].bidPrice}</h2><h2 class="one">Bid Quantity       ${d[7].bidQty}</h2><h2 class="one">Ask Price          ${d[7].askPrice}</h2><h2 class="one">Ask Quantity       ${d[7].askQty}</h2>
+                
+            </pre>
+                   </div>
+                <div class="box4">
+                    <pre>
+                <br>
+                <h2 class="one">Weighted Average    ${d[7].weightedAvgPrice}</h2><h2 class="one">Open Price          ${d[7].priceChange}</h2><h2 class="one">High Price          ${d[7].highPrice}</h2><h2 class="one">Low  Price          ${d[7].lowPrice}</h2><h2 class="one">Volume              ${d[7].volume}</h2><h2 class="one">Quote Volume        ${d[7].quoteVolume}</h2><h2 class="one">Open Time           ${d[7].openTime}</h2><h2 class="one">Close Time          ${d[7].closeTime}</h2><h2 class="one">Count               ${d[7].count}</h2>
+                
+            </pre>     
+                </div>
+        </div>
+        `;
+             a.insertAdjacentHTML("afterbegin",l);
+}
+
+
+        })
+        
+    }
+</script>
+</html>
